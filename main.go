@@ -23,6 +23,11 @@ func main() {
 	app.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Go away.")
 	})
+	
+	app.GET("/s/:name", func(c *gin.Context) {
+		name := c.Param("name")
+		c.String(http.StatusOK, "%s", name)
+	})
 
 	app.POST("/url", func(c *gin.Context) {
 		url := c.PostForm("_url")
